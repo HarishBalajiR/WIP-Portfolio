@@ -16,8 +16,6 @@ const siLinkedin = {
 const AtCoderMark = ({ className }: { className?: string }) => (
   <img src={atcoderLogo} alt="AtCoder logo" className={`${className ?? ""} object-contain`} />
 );
-  </svg>
-);
 
 const BrandIcon = ({
   path,
