@@ -1,46 +1,101 @@
-import { ArrowUpRight, Code2, Github, Linkedin, Swords, Trophy } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import {
+  siLeetcode,
+  siCodeforces,
+  siGithub,
+} from "simple-icons/icons";
 
-const profiles = [
+// LinkedIn brand path (simple-icons v9 — not exported by name in this build)
+const siLinkedin = {
+  hex: "0A66C2",
+  path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
+};
+
+// AtCoder isn't in simple-icons; use inline brand mark
+const AtCoderMark = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
+    <circle cx="32" cy="32" r="30" fill="#222222" />
+    <text
+      x="50%"
+      y="54%"
+      textAnchor="middle"
+      dominantBaseline="middle"
+      fontFamily="'Space Grotesk', system-ui, sans-serif"
+      fontWeight="800"
+      fontSize="28"
+      fill="#ffffff"
+    >
+      AC
+    </text>
+  </svg>
+);
+
+const BrandIcon = ({
+  path,
+  hex,
+  className,
+}: {
+  path: string;
+  hex: string;
+  className?: string;
+}) => (
+  <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+    <path d={path} fill={`#${hex}`} />
+  </svg>
+);
+
+type Profile = {
+  name: string;
+  handle: string;
+  href: string;
+  tagline: string;
+  accent: string;
+  render: (cls: string) => JSX.Element;
+};
+
+const profiles: Profile[] = [
   {
     name: "LeetCode",
     handle: "HarishBalajiR",
     href: "https://leetcode.com/u/HarishBalajiR/",
-    icon: Code2,
     tagline: "DSA grind · daily problems",
     accent: "from-amber-500/30 to-orange-500/10",
+    render: (cls) => <BrandIcon path={siLeetcode.path} hex={siLeetcode.hex} className={cls} />,
   },
   {
     name: "Codeforces",
     handle: "HarishBalajiR",
     href: "https://codeforces.com/profile/HarishBalajiR",
-    icon: Swords,
     tagline: "Competitive programming",
     accent: "from-rose-500/30 to-red-500/10",
+    render: (cls) => <BrandIcon path={siCodeforces.path} hex={siCodeforces.hex} className={cls} />,
   },
   {
     name: "AtCoder",
     handle: "HarishBalajiR",
     href: "https://atcoder.jp/users/HarishBalajiR",
-    icon: Trophy,
     tagline: "Weekend contests",
     accent: "from-sky-500/30 to-cyan-500/10",
+    render: (cls) => <AtCoderMark className={cls} />,
   },
   {
     name: "GitHub",
     handle: "HarishBalajiR",
     href: "https://github.com/HarishBalajiR",
-    icon: Github,
     tagline: "Code, projects, experiments",
     accent: "from-violet-500/30 to-fuchsia-500/10",
+    render: (cls) => (
+      <BrandIcon path={siGithub.path} hex="ffffff" className={cls} />
+    ),
   },
   {
     name: "LinkedIn",
     handle: "in/HarishBalajiR",
     href: "https://www.linkedin.com/in/HarishBalajiR",
-    icon: Linkedin,
     tagline: "Let's connect professionally",
     accent: "from-blue-500/30 to-indigo-500/10",
+    render: (cls) => <BrandIcon path={siLinkedin.path} hex={siLinkedin.hex} className={cls} />,
   },
 ];
 
@@ -92,7 +147,6 @@ const Profiles = () => {
         className="relative flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 px-6 md:px-[max(1.5rem,calc((100vw-72rem)/2))] scroll-smooth no-scrollbar"
       >
         {profiles.map((p, i) => {
-          const Icon = p.icon;
           const isVisible = visible.has(i);
           return (
             <a
@@ -111,8 +165,8 @@ const Profiles = () => {
 
               <div className="relative h-full p-8 flex flex-col justify-between">
                 <div className="flex items-start justify-between">
-                  <div className="w-14 h-14 rounded-2xl bg-background/60 backdrop-blur border border-border flex items-center justify-center">
-                    <Icon className="w-7 h-7" />
+                  <div className="w-16 h-16 rounded-2xl bg-background/70 backdrop-blur border border-border flex items-center justify-center p-3">
+                    {p.render("w-full h-full")}
                   </div>
                   <ArrowUpRight className="w-6 h-6 text-muted-foreground group-hover:text-foreground group-hover:rotate-45 transition-all" />
                 </div>
