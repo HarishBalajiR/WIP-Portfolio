@@ -49,7 +49,7 @@ const Hero = () => {
                 <a aria-label="GitHub" href="https://github.com/HarishBalajiR" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full border border-border hover:border-foreground/40 transition-colors">
                   <Github className="w-4 h-4" />
                 </a>
-                <a aria-label="LinkedIn" href="https://linkedin.com/in/HarishBalajiR" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full border border-border hover:border-foreground/40 transition-colors">
+                <a aria-label="LinkedIn" href="https://www.linkedin.com/in/HarishBalajiR" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full border border-border hover:border-foreground/40 transition-colors">
                   <Linkedin className="w-4 h-4" />
                 </a>
               </div>
