@@ -17,7 +17,7 @@ const Experience = () => {
     <section id="experience" className="relative py-28 border-t border-border">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-16">
         <div className="md:col-span-7">
-          <div className="font-mono text-xs text-muted-foreground mb-4">/ 03 — EDUCATION</div>
+          
           <h2 className="font-display text-4xl md:text-5xl leading-tight mb-12">
             Just <em className="text-gradient not-italic">getting started</em>.
           </h2>
@@ -39,7 +39,7 @@ const Experience = () => {
 
         <div className="md:col-span-5">
           <div className="md:sticky md:top-28">
-            <div className="font-mono text-xs text-muted-foreground mb-4">/ SKILLS</div>
+            
             <h3 className="font-display text-3xl mb-8">Toolbox</h3>
             <div className="flex flex-wrap gap-2">
               {skills.map((s) => (

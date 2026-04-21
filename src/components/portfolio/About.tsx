@@ -9,7 +9,7 @@ const About = () => {
     <section id="about" className="relative py-28 border-t border-border">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12">
         <div className="md:col-span-4">
-          <div className="font-mono text-xs text-muted-foreground mb-4">/ 01 — ABOUT</div>
+          
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
             A <em className="text-gradient not-italic">curious</em> beginner.
           </h2>

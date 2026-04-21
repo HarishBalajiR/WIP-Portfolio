@@ -4,7 +4,7 @@ const Work = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-end justify-between gap-6 mb-16">
           <div>
-            <div className="font-mono text-xs text-muted-foreground mb-4">/ 02 — SELECTED WORK</div>
+            
             <h2 className="font-display text-4xl md:text-5xl leading-tight">
               Projects <em className="text-gradient not-italic">coming soon</em>.
             </h2>

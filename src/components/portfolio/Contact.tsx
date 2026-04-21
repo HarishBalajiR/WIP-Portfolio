@@ -15,7 +15,7 @@ const Contact = () => {
       <div className="absolute inset-0 grid-bg opacity-[0.12] pointer-events-none" />
 
       <div className="relative max-w-4xl mx-auto px-6 text-center">
-        <div className="font-mono text-xs text-muted-foreground mb-6">/ 05 — CONTACT</div>
+        
         <h2 className="font-display text-5xl md:text-7xl leading-[0.95] tracking-tight">
           Let's connect
           <br />
@@ -32,16 +32,6 @@ const Contact = () => {
           >
             <Mail className="w-5 h-5" />
             Email me
-            <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/HarishBalajiR"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 px-7 py-4 rounded-full border border-border hover:border-foreground/40 font-medium transition-colors"
-          >
-            <Linkedin className="w-5 h-5" />
-            Message on LinkedIn
             <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
           </a>
         </div>
