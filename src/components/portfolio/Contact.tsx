@@ -2,7 +2,7 @@ import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 
 const socials = [
   { icon: Github, label: "GitHub", handle: "HarishBalajiR", href: "https://github.com/HarishBalajiR" },
-  { icon: Linkedin, label: "LinkedIn", handle: "in/HarishBalajiR", href: "https://linkedin.com/in/HarishBalajiR" },
+  { icon: Linkedin, label: "LinkedIn", handle: "in/HarishBalajiR", href: "https://www.linkedin.com/in/HarishBalajiR" },
 ];
 
 const Contact = () => {
@@ -23,7 +23,7 @@ const Contact = () => {
         </p>
 
         <a
-          href="https://linkedin.com/in/HarishBalajiR"
+          href="https://www.linkedin.com/in/HarishBalajiR"
           target="_blank"
           rel="noopener noreferrer"
           className="group inline-flex items-center gap-3 mt-10 px-7 py-4 rounded-full bg-primary text-primary-foreground font-medium hover:shadow-glow transition-all"
