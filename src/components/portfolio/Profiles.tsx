@@ -123,7 +123,7 @@ const Profiles = () => {
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-10">
           <div>
-            <div className="font-mono text-xs text-muted-foreground mb-3">/ 04 — PROFILES</div>
+            
             <h2 className="font-display text-4xl md:text-6xl leading-[0.95] tracking-tight">
               Find me <em className="text-gradient not-italic">across the web</em>
             </h2>
