@@ -1,8 +1,11 @@
 import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 
+const EMAIL = "harishbalajir2008@gmail.com";
+
 const socials = [
   { icon: Github, label: "GitHub", handle: "HarishBalajiR", href: "https://github.com/HarishBalajiR" },
   { icon: Linkedin, label: "LinkedIn", handle: "in/HarishBalajiR", href: "https://www.linkedin.com/in/HarishBalajiR" },
+  { icon: Mail, label: "Email", handle: EMAIL, href: `mailto:${EMAIL}` },
 ];
 
 const Contact = () => {
@@ -22,16 +25,26 @@ const Contact = () => {
           Open to internships, mentorship, and learning opportunities. Reach out anytime — I'd love to chat.
         </p>
 
-        <a
-          href="https://www.linkedin.com/in/HarishBalajiR"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex items-center gap-3 mt-10 px-7 py-4 rounded-full bg-primary text-primary-foreground font-medium hover:shadow-glow transition-all"
-        >
-          <Mail className="w-5 h-5" />
-          Message me on LinkedIn
-          <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
-        </a>
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <a
+            href={`mailto:${EMAIL}`}
+            className="group inline-flex items-center gap-3 px-7 py-4 rounded-full bg-primary text-primary-foreground font-medium hover:shadow-glow transition-all"
+          >
+            <Mail className="w-5 h-5" />
+            Email me
+            <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/HarishBalajiR"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 px-7 py-4 rounded-full border border-border hover:border-foreground/40 font-medium transition-colors"
+          >
+            <Linkedin className="w-5 h-5" />
+            Message on LinkedIn
+            <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
+          </a>
+        </div>
 
         <div className="mt-16 flex flex-wrap justify-center gap-3">
           {socials.map((s) => (
