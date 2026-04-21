@@ -62,9 +62,8 @@ const Contact = () => {
         </div>
       </div>
 
-      <footer className="relative mt-24 max-w-6xl mx-auto px-6 flex flex-col md:flex-row gap-4 items-center justify-between text-xs font-mono text-muted-foreground">
-        <div>© 2026 Harish Balaji R. Crafted with care.</div>
-        <div>Built in Chennai · v1.0</div>
+      <footer className="relative mt-24 max-w-6xl mx-auto px-6 text-center text-xs font-mono text-muted-foreground">
+        © 2026 Harish Balaji R. Crafted with care.
       </footer>
     </section>
   );
