@@ -1,7 +1,7 @@
 const stats = [
-  { value: "8+", label: "Years shipping production code" },
-  { value: "40+", label: "Projects launched" },
-  { value: "12", label: "Open-source contributions" },
+  { value: "1st", label: "Year of B.E. CSE" },
+  { value: "3+", label: "Languages in active use" },
+  { value: "∞", label: "Curiosity to learn" },
 ];
 
 const About = () => {
@@ -11,15 +11,15 @@ const About = () => {
         <div className="md:col-span-4">
           <div className="font-mono text-xs text-muted-foreground mb-4">/ 01 — ABOUT</div>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            A <em className="text-gradient not-italic">craftsman</em> at heart.
+            A <em className="text-gradient not-italic">curious</em> beginner.
           </h2>
         </div>
         <div className="md:col-span-8 space-y-6 text-lg text-muted-foreground leading-relaxed">
           <p>
-            I bridge the gap between design and engineering, building products that feel as good as they look. From early-stage startups to enterprise platforms, I've shipped interfaces used by millions.
+            I'm a first-year Bachelor of Engineering student in Computer Science and Engineering at St Joseph's College of Engineering, Chennai. I spend my time learning to code, sharpening my problem-solving, and exploring how real software gets built.
           </p>
           <p className="text-foreground">
-            Lately I'm obsessed with: edge-rendered React, type-safe APIs, motion design with intent, and design systems that scale with teams instead of slowing them down.
+            Outside the editor, you'll find me reading, playing chess, or tinkering with side ideas. My goal is simple — keep building, keep improving, and earn a software role at one of the world's best engineering teams.
           </p>
 
           <div className="grid grid-cols-3 gap-6 pt-8">

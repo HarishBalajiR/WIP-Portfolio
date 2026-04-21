@@ -8,8 +8,8 @@ import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Alex Rivera — Senior Full-Stack Engineer";
-    const desc = "Portfolio of Alex Rivera, senior full-stack engineer crafting fast, accessible web experiences with React, TypeScript and modern tooling.";
+    document.title = "Harish Balaji R — CS Freshman & Aspiring Software Engineer";
+    const desc = "Portfolio of Harish Balaji R, B.E. Computer Science freshman at St Joseph's College of Engineering, Chennai. Learning full-stack development and problem-solving.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");
