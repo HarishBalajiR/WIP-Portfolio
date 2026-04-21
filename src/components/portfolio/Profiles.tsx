@@ -36,7 +36,10 @@ type Profile = {
   handle: string;
   href: string;
   tagline: string;
-  accent: string;
+  /** card background (solid or gradient) — should match brand */
+  bg: string;
+  /** brand wordmark color */
+  wordmarkColor: string;
   render: (cls: string) => JSX.Element;
 };
 
@@ -46,7 +49,8 @@ const profiles: Profile[] = [
     handle: "HarishBalajiR",
     href: "https://leetcode.com/u/HarishBalajiR/",
     tagline: "DSA grind · daily problems",
-    accent: "from-amber-500/30 to-orange-500/10",
+    bg: "bg-gradient-to-b from-neutral-900 to-black",
+    wordmarkColor: "#ffffff",
     render: (cls) => <BrandIcon path={siLeetcode.path} hex={siLeetcode.hex} className={cls} />,
   },
   {
@@ -54,15 +58,17 @@ const profiles: Profile[] = [
     handle: "HarishBalajiR",
     href: "https://codeforces.com/profile/HarishBalajiR",
     tagline: "Competitive programming",
-    accent: "from-rose-500/30 to-red-500/10",
-    render: (cls) => <BrandIcon path={siCodeforces.path} hex={siCodeforces.hex} className={cls} />,
+    bg: "bg-gradient-to-b from-[#1f2a44] to-[#0b1220]",
+    wordmarkColor: "#ffffff",
+    render: (cls) => <BrandIcon path={siCodeforces.path} hex="ffffff" className={cls} />,
   },
   {
     name: "AtCoder",
     handle: "HarishBalajiR",
     href: "https://atcoder.jp/users/HarishBalajiR",
     tagline: "Weekend contests",
-    accent: "from-sky-500/30 to-cyan-500/10",
+    bg: "bg-white",
+    wordmarkColor: "#000000",
     render: (cls) => <AtCoderMark className={cls} />,
   },
   {
@@ -70,18 +76,18 @@ const profiles: Profile[] = [
     handle: "HarishBalajiR",
     href: "https://github.com/HarishBalajiR",
     tagline: "Code, projects, experiments",
-    accent: "from-violet-500/30 to-fuchsia-500/10",
-    render: (cls) => (
-      <BrandIcon path={siGithub.path} hex="ffffff" className={cls} />
-    ),
+    bg: "bg-gradient-to-b from-[#1a1a1a] to-[#0d1117]",
+    wordmarkColor: "#ffffff",
+    render: (cls) => <BrandIcon path={siGithub.path} hex="ffffff" className={cls} />,
   },
   {
     name: "LinkedIn",
     handle: "in/HarishBalajiR",
     href: "https://www.linkedin.com/in/HarishBalajiR",
     tagline: "Let's connect professionally",
-    accent: "from-blue-500/30 to-indigo-500/10",
-    render: (cls) => <BrandIcon path={siLinkedin.path} hex={siLinkedin.hex} className={cls} />,
+    bg: "bg-gradient-to-b from-[#0a66c2] to-[#004182]",
+    wordmarkColor: "#ffffff",
+    render: (cls) => <BrandIcon path={siLinkedin.path} hex="ffffff" className={cls} />,
   },
 ];
 
@@ -142,28 +148,36 @@ const Profiles = () => {
               href={p.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group relative shrink-0 snap-center w-[78vw] sm:w-[420px] md:w-[480px] h-[360px] rounded-3xl border border-border bg-card overflow-hidden transition-all duration-700 ${
+              className={`group relative shrink-0 snap-center w-[78vw] sm:w-[420px] md:w-[480px] h-[360px] rounded-3xl border border-border overflow-hidden transition-all duration-700 ${p.bg} ${
                 isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-40 translate-y-6 scale-[0.94]"
               }`}
+              style={{ color: p.wordmarkColor }}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${p.accent} opacity-80`} />
-              <div className="absolute inset-0 grid-bg opacity-[0.15]" />
+              {/* subtle vignette for depth */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.45)_100%)] pointer-events-none" />
 
-              <div className="relative h-full p-8 flex flex-col justify-between">
-                <div className="flex items-start justify-between">
-                  <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
-                    {p.render("w-full h-full drop-shadow-[0_4px_20px_rgba(0,0,0,0.4)]")}
-                  </div>
-                  <ArrowUpRight className="w-6 h-6 text-muted-foreground group-hover:text-foreground group-hover:rotate-45 transition-all" />
-                </div>
+              <ArrowUpRight
+                className="absolute top-5 right-5 w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all"
+                style={{ color: p.wordmarkColor }}
+              />
 
-                <div>
-                  <div className="font-mono text-xs text-muted-foreground mb-2">{p.tagline}</div>
-                  <div className="font-display text-4xl md:text-5xl tracking-tight leading-none">
-                    {p.name}
-                  </div>
-                  <div className="mt-3 font-mono text-sm text-muted-foreground">@{p.handle}</div>
+              {/* Hero: large logo + wordmark, centered, fills the box */}
+              <div className="relative h-full w-full flex flex-col items-center justify-center px-8">
+                <div className="w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
+                  {p.render("w-full h-full drop-shadow-[0_8px_30px_rgba(0,0,0,0.45)]")}
                 </div>
+                <div
+                  className="mt-5 font-display font-bold text-5xl md:text-6xl tracking-tight leading-none text-center"
+                  style={{ color: p.wordmarkColor }}
+                >
+                  {p.name}
+                </div>
+              </div>
+
+              {/* footer strip with handle + tagline */}
+              <div className="absolute bottom-0 left-0 right-0 px-6 py-3 flex items-center justify-between bg-black/40 backdrop-blur-sm border-t border-white/10">
+                <span className="font-mono text-xs text-white/80">@{p.handle}</span>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-white/50">{p.tagline}</span>
               </div>
             </a>
           );
