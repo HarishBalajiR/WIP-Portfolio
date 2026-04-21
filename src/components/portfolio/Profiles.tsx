@@ -165,8 +165,8 @@ const Profiles = () => {
 
               <div className="relative h-full p-8 flex flex-col justify-between">
                 <div className="flex items-start justify-between">
-                  <div className="w-16 h-16 rounded-2xl bg-background/70 backdrop-blur border border-border flex items-center justify-center p-3">
-                    {p.render("w-full h-full")}
+                  <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
+                    {p.render("w-full h-full drop-shadow-[0_4px_20px_rgba(0,0,0,0.4)]")}
                   </div>
                   <ArrowUpRight className="w-6 h-6 text-muted-foreground group-hover:text-foreground group-hover:rotate-45 transition-all" />
                 </div>
