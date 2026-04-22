@@ -6,6 +6,7 @@ import {
   siGithub,
 } from "simple-icons/icons";
 import atcoderLogo from "@/assets/atcoder.png";
+import chesscomBg from "@/assets/chesscom.png";
 
 // LinkedIn brand path (simple-icons v9 — not exported by name in this build)
 const siLinkedin = {
@@ -47,6 +48,8 @@ type Profile = {
   /** brand wordmark color */
   wordmarkColor: string;
   render: (cls: string) => JSX.Element;
+  /** optional full-bleed background image; when set, hero logo/wordmark are hidden */
+  bgImage?: string;
 };
 
 const profiles: Profile[] = [
@@ -100,9 +103,10 @@ const profiles: Profile[] = [
     handle: "tidalwavesaddictoninsta",
     href: "https://www.chess.com/member/tidalwavesaddictoninsta",
     tagline: "Blitz, rapid & puzzles",
-    bg: "bg-gradient-to-b from-[#3d3d3b] to-[#1f1f1e]",
-    wordmarkColor: "#81B64C",
+    bg: "bg-[#f1f1f1]",
+    wordmarkColor: "#ffffff",
     render: (cls) => <BrandIcon path={siChesscom.path} hex="81B64C" className={cls} />,
+    bgImage: chesscomBg,
   },
 ];
 
@@ -168,6 +172,16 @@ const Profiles = () => {
               }`}
               style={{ color: p.wordmarkColor }}
             >
+              {/* optional full-bleed background image */}
+              {p.bgImage && (
+                <img
+                  src={p.bgImage}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              )}
+
               {/* subtle vignette for depth */}
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.45)_100%)] pointer-events-none" />
 
@@ -176,18 +190,20 @@ const Profiles = () => {
                 style={{ color: p.wordmarkColor }}
               />
 
-              {/* Hero: large logo + wordmark, centered, fills the box */}
-              <div className="relative h-full w-full flex flex-col items-center justify-center px-8">
-                <div className="w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
-                  {p.render("w-full h-full drop-shadow-[0_8px_30px_rgba(0,0,0,0.45)]")}
+              {/* Hero: large logo + wordmark, centered, fills the box (hidden when bgImage is set) */}
+              {!p.bgImage && (
+                <div className="relative h-full w-full flex flex-col items-center justify-center px-8">
+                  <div className="w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
+                    {p.render("w-full h-full drop-shadow-[0_8px_30px_rgba(0,0,0,0.45)]")}
+                  </div>
+                  <div
+                    className="mt-5 font-display font-bold text-5xl md:text-6xl tracking-tight leading-none text-center"
+                    style={{ color: p.wordmarkColor }}
+                  >
+                    {p.name}
+                  </div>
                 </div>
-                <div
-                  className="mt-5 font-display font-bold text-5xl md:text-6xl tracking-tight leading-none text-center"
-                  style={{ color: p.wordmarkColor }}
-                >
-                  {p.name}
-                </div>
-              </div>
+              )}
 
               {/* footer strip with handle + tagline */}
               <div className="absolute bottom-0 left-0 right-0 px-6 py-3 flex items-center justify-between bg-black/40 backdrop-blur-sm border-t border-white/10">
