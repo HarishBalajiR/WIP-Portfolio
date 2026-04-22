@@ -199,9 +199,7 @@ const LiveStats = () => {
               <Stat label="Max rating" value={cf.data?.maxRating || "—"} />
               <Stat
                 label="Max rank"
-                value={
-                  <span className="capitalize">{cf.data?.maxRank ?? "—"}</span> as any
-                }
+                value={<span className="capitalize">{cf.data?.maxRank ?? "—"}</span>}
               />
               <Stat label="Contests" value={cf.data?.contests ?? 0} />
             </div>
