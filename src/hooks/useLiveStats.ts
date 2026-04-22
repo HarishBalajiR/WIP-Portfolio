@@ -7,8 +7,8 @@ export type LeetCodeStats = {
   easySolved: number;
   mediumSolved: number;
   hardSolved: number;
-  ranking: number;
-  acceptanceRate: number;
+  contestRating: number;
+  currentStreak: number;
 };
 
 export type GitHubStats = {
@@ -38,42 +38,52 @@ export function useLeetCodeStats(handle: string) {
     queryKey: ["leetcode", handle],
     staleTime: ONE_HOUR,
     queryFn: async (): Promise<LeetCodeStats> => {
-      // Try multiple endpoints — public LeetCode APIs are flaky
-      const endpoints = [
-        `https://alfa-leetcode-api.onrender.com/${handle}/solved`,
-        `https://leetcode-api-faisalshohag.vercel.app/${handle}`,
-      ];
+      const [profile, contest] = await Promise.all([
+        fetchJson<any>(
+          `https://alfa-leetcode-api.onrender.com/userProfile/${handle}`,
+        ).catch(() => null),
+        fetchJson<any>(
+          `https://alfa-leetcode-api.onrender.com/${handle}/contest`,
+        ).catch(() => null),
+      ]);
 
-      let lastErr: unknown;
-      for (const url of endpoints) {
-        try {
-          const data = await fetchJson<any>(url);
-          // Normalize across the two response shapes
-          const totalSolved =
-            data.solvedProblem ?? data.totalSolved ?? data.totalSolved ?? 0;
-          const easySolved = data.easySolved ?? 0;
-          const mediumSolved = data.mediumSolved ?? 0;
-          const hardSolved = data.hardSolved ?? 0;
-          const ranking = data.ranking ?? 0;
-          const acceptanceRate = data.acceptanceRate ?? 0;
+      if (!profile) throw new Error("LeetCode profile unavailable");
 
-          if (totalSolved === 0 && easySolved === 0 && mediumSolved === 0 && hardSolved === 0) {
-            throw new Error("Empty response");
-          }
-
-          return {
-            totalSolved,
-            easySolved,
-            mediumSolved,
-            hardSolved,
-            ranking,
-            acceptanceRate,
-          };
-        } catch (e) {
-          lastErr = e;
+      // Compute current streak from submissionCalendar (UNIX day -> count)
+      const calendar: Record<string, number> = profile.submissionCalendar ?? {};
+      const activeDays = new Set<string>();
+      Object.entries(calendar).forEach(([ts, count]) => {
+        if (Number(count) > 0) {
+          const d = new Date(Number(ts) * 1000);
+          activeDays.add(
+            `${d.getUTCFullYear()}-${d.getUTCMonth()}-${d.getUTCDate()}`,
+          );
         }
+      });
+      const dayKey = (d: Date) =>
+        `${d.getUTCFullYear()}-${d.getUTCMonth()}-${d.getUTCDate()}`;
+      const today = new Date();
+      let streak = 0;
+      const cursor = new Date(today);
+      // If no activity today, start counting from yesterday
+      if (!activeDays.has(dayKey(cursor))) {
+        cursor.setUTCDate(cursor.getUTCDate() - 1);
       }
-      throw lastErr instanceof Error ? lastErr : new Error("LeetCode error");
+      while (activeDays.has(dayKey(cursor))) {
+        streak++;
+        cursor.setUTCDate(cursor.getUTCDate() - 1);
+      }
+
+      return {
+        totalSolved: profile.totalSolved ?? 0,
+        easySolved: profile.easySolved ?? 0,
+        mediumSolved: profile.mediumSolved ?? 0,
+        hardSolved: profile.hardSolved ?? 0,
+        contestRating: contest?.contestRating
+          ? Math.round(contest.contestRating)
+          : 0,
+        currentStreak: streak,
+      };
     },
   });
 }
