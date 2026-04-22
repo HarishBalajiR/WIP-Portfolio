@@ -38,20 +38,42 @@ export function useLeetCodeStats(handle: string) {
     queryKey: ["leetcode", handle],
     staleTime: ONE_HOUR,
     queryFn: async (): Promise<LeetCodeStats> => {
-      const data = await fetchJson<any>(
-        `https://leetcode-stats-api.herokuapp.com/${handle}`,
-      );
-      if (data.status && data.status !== "success") {
-        throw new Error(data.message || "LeetCode error");
+      // Try multiple endpoints — public LeetCode APIs are flaky
+      const endpoints = [
+        `https://alfa-leetcode-api.onrender.com/${handle}/solved`,
+        `https://leetcode-api-faisalshohag.vercel.app/${handle}`,
+      ];
+
+      let lastErr: unknown;
+      for (const url of endpoints) {
+        try {
+          const data = await fetchJson<any>(url);
+          // Normalize across the two response shapes
+          const totalSolved =
+            data.solvedProblem ?? data.totalSolved ?? data.totalSolved ?? 0;
+          const easySolved = data.easySolved ?? 0;
+          const mediumSolved = data.mediumSolved ?? 0;
+          const hardSolved = data.hardSolved ?? 0;
+          const ranking = data.ranking ?? 0;
+          const acceptanceRate = data.acceptanceRate ?? 0;
+
+          if (totalSolved === 0 && easySolved === 0 && mediumSolved === 0 && hardSolved === 0) {
+            throw new Error("Empty response");
+          }
+
+          return {
+            totalSolved,
+            easySolved,
+            mediumSolved,
+            hardSolved,
+            ranking,
+            acceptanceRate,
+          };
+        } catch (e) {
+          lastErr = e;
+        }
       }
-      return {
-        totalSolved: data.totalSolved ?? 0,
-        easySolved: data.easySolved ?? 0,
-        mediumSolved: data.mediumSolved ?? 0,
-        hardSolved: data.hardSolved ?? 0,
-        ranking: data.ranking ?? 0,
-        acceptanceRate: data.acceptanceRate ?? 0,
-      };
+      throw lastErr instanceof Error ? lastErr : new Error("LeetCode error");
     },
   });
 }
