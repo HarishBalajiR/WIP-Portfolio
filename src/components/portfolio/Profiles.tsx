@@ -13,6 +13,12 @@ const siLinkedin = {
   path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
 };
 
+// Chess.com brand mark
+const siChesscom = {
+  hex: "81B64C",
+  path: "M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.4a9.6 9.6 0 110 19.2 9.6 9.6 0 010-19.2zm-1.2 3.6v1.2H9.6v1.2h1.2v1.2H9.6v1.2h1.2v3.6c0 .66.54 1.2 1.2 1.2s1.2-.54 1.2-1.2v-3.6h1.2v-1.2H13.2V8.4h1.2V7.2h-1.2V6h-2.4zM7.2 16.8v1.2h9.6v-1.2H7.2z",
+};
+
 const AtCoderMark = ({ className }: { className?: string }) => (
   <img src={atcoderLogo} alt="AtCoder logo" className={`${className ?? ""} object-contain`} />
 );
@@ -88,6 +94,15 @@ const profiles: Profile[] = [
     bg: "bg-gradient-to-b from-[#0a66c2] to-[#004182]",
     wordmarkColor: "#ffffff",
     render: (cls) => <BrandIcon path={siLinkedin.path} hex="ffffff" className={cls} />,
+  },
+  {
+    name: "Chess.com",
+    handle: "tidalwavesaddictoninsta",
+    href: "https://www.chess.com/member/tidalwavesaddictoninsta",
+    tagline: "Blitz, rapid & puzzles",
+    bg: "bg-gradient-to-b from-[#3d3d3b] to-[#1f1f1e]",
+    wordmarkColor: "#81B64C",
+    render: (cls) => <BrandIcon path={siChesscom.path} hex="81B64C" className={cls} />,
   },
 ];
 
