@@ -99,7 +99,7 @@ const LiveStats = () => {
             Numbers, not <em className="text-gradient not-italic">promises</em>.
           </h2>
           <p className="font-mono text-xs text-muted-foreground max-w-xs">
-            Live data — pulled directly from each platform on page load.
+            ​
           </p>
         </div>
 
