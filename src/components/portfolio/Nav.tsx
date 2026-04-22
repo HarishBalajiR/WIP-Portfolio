@@ -27,7 +27,7 @@ const Nav = () => {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 font-mono text-sm" aria-label="Top" />
+        <a href="#top" className="flex items-center gap-2 font-mono text-sm" aria-label="Top"></a>
 
         <ul className="hidden md:flex items-center gap-1 text-sm">
           {links.map((l) => (
