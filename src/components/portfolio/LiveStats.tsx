@@ -66,7 +66,13 @@ const CardShell = ({
   </a>
 );
 
-const Stat = ({ label, value }: { label: string; value: string | number }) => (
+const Stat = ({
+  label,
+  value,
+}: {
+  label: string;
+  value: React.ReactNode;
+}) => (
   <div className="flex items-baseline justify-between text-sm opacity-80 border-t border-white/10 pt-2">
     <span className="font-mono text-xs uppercase tracking-wider opacity-70">
       {label}
