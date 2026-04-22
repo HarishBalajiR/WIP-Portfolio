@@ -95,6 +95,15 @@ const profiles: Profile[] = [
     wordmarkColor: "#ffffff",
     render: (cls) => <BrandIcon path={siLinkedin.path} hex="ffffff" className={cls} />,
   },
+  {
+    name: "Chess.com",
+    handle: "tidalwavesaddictoninsta",
+    href: "https://www.chess.com/member/tidalwavesaddictoninsta",
+    tagline: "Blitz, rapid & puzzles",
+    bg: "bg-gradient-to-b from-[#3d3d3b] to-[#1f1f1e]",
+    wordmarkColor: "#81B64C",
+    render: (cls) => <BrandIcon path={siChesscom.path} hex="81B64C" className={cls} />,
+  },
 ];
 
 const Profiles = () => {
