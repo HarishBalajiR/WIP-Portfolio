@@ -5,7 +5,6 @@ const EMAIL = "harishbalajir2008@gmail.com";
 const socials = [
   { icon: Github, label: "GitHub", handle: "HarishBalajiR", href: "https://github.com/HarishBalajiR" },
   { icon: Linkedin, label: "LinkedIn", handle: "in/HarishBalajiR", href: "https://www.linkedin.com/in/HarishBalajiR" },
-  { icon: Mail, label: "Email", handle: EMAIL, href: `mailto:${EMAIL}` },
 ];
 
 const Contact = () => {
