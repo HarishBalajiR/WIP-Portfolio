@@ -27,9 +27,8 @@ const Nav = () => {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 font-mono text-sm">
-          <span className="w-2 h-2 rounded-full bg-primary glow-dot animate-pulse-glow" />
-        </a>
+        <a href="#top" className="flex items-center gap-2 font-mono text-sm" aria-label="Top" />
+
         <ul className="hidden md:flex items-center gap-1 text-sm">
           {links.map((l) => (
             <li key={l.href}>
