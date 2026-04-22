@@ -129,12 +129,12 @@ const LiveStats = () => {
                 value={`${lc.data?.easySolved ?? 0} · ${lc.data?.mediumSolved ?? 0} · ${lc.data?.hardSolved ?? 0}`}
               />
               <Stat
-                label="Global rank"
-                value={lc.data?.ranking ? lc.data.ranking.toLocaleString() : "—"}
+                label="Contest rating"
+                value={lc.data?.contestRating ? lc.data.contestRating : "—"}
               />
               <Stat
-                label="Acceptance"
-                value={`${(lc.data?.acceptanceRate ?? 0).toFixed(1)}%`}
+                label="Current streak"
+                value={`${lc.data?.currentStreak ?? 0} days`}
               />
             </div>
           </CardShell>
