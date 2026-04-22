@@ -207,7 +207,7 @@ const LiveStats = () => {
         </div>
 
         <div className="mt-8 text-center font-mono text-xs text-muted-foreground">
-          Auto-refreshes hourly · @{HANDLE} on all platforms
+          ​
         </div>
       </div>
     </section>
