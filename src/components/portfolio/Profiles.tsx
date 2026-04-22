@@ -129,7 +129,7 @@ const Profiles = () => {
             </h2>
           </div>
           <p className="font-mono text-xs text-muted-foreground max-w-xs">
-            ← scroll horizontally to reveal each profile →
+            ​
           </p>
         </div>
       </div>
