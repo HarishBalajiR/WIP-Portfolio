@@ -16,10 +16,10 @@ const About = () => {
         </div>
         <div className="md:col-span-8 space-y-6 text-lg text-muted-foreground leading-relaxed">
           <p>
-            I'm a first-year Bachelor of Engineering student in Computer Science and Engineering at St Joseph's College of Engineering, Chennai. I spend my time learning to code, sharpening my problem-solving, and exploring how real software gets built.
+            I'm a first-year student pursuing Computer Science and Engineering at St Joseph's College of Engineering, Chennai. I spend my time learning to code, sharpening my problem-solving, and exploring how real software gets built.
           </p>
           <p className="text-foreground">
-            Outside the editor, you'll find me reading, playing chess, or tinkering with side ideas. My goal is simple — keep building, keep improving, and earn a software role at one of the world's best engineering teams.
+            Outside the editor, you'll find me reading, playing chess, or tinkering with side ideas. My goal is simple, keep building, keep improving, and earn my spot in the tech field.
           </p>
 
           <div className="grid grid-cols-3 gap-6 pt-8">

@@ -1,5 +1,5 @@
 import { ArrowDownRight, Github, Linkedin } from "lucide-react";
-import portrait from "@/assets/portrait.jpg";
+import portrait from "../../assets/portrait.png";
 
 const Hero = () => {
   return (
@@ -29,7 +29,7 @@ const Hero = () => {
         >
           <div className="md:col-span-2 space-y-6 max-w-xl">
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm <span className="text-foreground font-medium">Harish Balaji R</span> — a Computer Science freshman at St Joseph's College of Engineering, Chennai. Exploring full-stack development, sharpening problem-solving, and building toward a career at a top tech company.
+              I'm <span className="text-foreground font-medium">Harish Balaji R</span> , a Computer Science freshman @ St Joseph's College of Engineering, Chennai. Currently Exploring full-stack development, sharpening problem-solving, and building toward a career in the tech industry.
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <a
@@ -80,7 +80,7 @@ const Hero = () => {
               <div key={i} className="flex gap-12 pr-12">
                 <span>Java</span><span>·</span>
                 <span className="text-foreground">C++</span><span>·</span>
-                <span>Full-Stack</span><span>·</span>
+                <span>Full Stack</span><span>·</span>
                 <span className="italic text-gradient">Problem Solving</span><span>·</span>
                 <span>DSA</span><span>·</span>
                 <span>Web Dev</span><span>·</span>

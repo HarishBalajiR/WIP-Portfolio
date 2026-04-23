@@ -96,7 +96,7 @@ const LiveStats = () => {
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-12">
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            Numbers, not <em className="text-gradient not-italic">promises</em>.
+            My Coding Knowledge <em className="text-gradient not-italic">at a glance</em>
           </h2>
           <p className="font-mono text-xs text-muted-foreground max-w-xs">
             ​

@@ -3,7 +3,7 @@ const education = [
     period: "2025 — 2029",
     company: "St Joseph's College of Engineering",
     title: "B.E. Computer Science and Engineering",
-    desc: "Currently in my first year. Building strong foundations in programming, data structures, and computer science fundamentals.",
+    desc: "Currently in my first year. Building strong foundations in data structures and fundamentals.",
   },
 ];
 

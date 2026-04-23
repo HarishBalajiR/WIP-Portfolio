@@ -21,7 +21,7 @@ const Contact = () => {
           <em className="text-gradient not-italic">and build.</em>
         </h2>
         <p className="mt-8 text-lg text-muted-foreground max-w-xl mx-auto">
-          Open to internships, mentorship, and learning opportunities. Reach out anytime — I'd love to chat.
+          Open to internships, mentorship, and learning opportunities. Reach out to know more about me!
         </p>
 
         <div className="mt-10 flex flex-wrap justify-center gap-3">
@@ -52,7 +52,7 @@ const Contact = () => {
       </div>
 
       <footer className="relative mt-24 max-w-6xl mx-auto px-6 text-center text-xs font-mono text-muted-foreground">
-        © 2026 Harish Balaji R. Crafted with care.
+        © 2026, Made by Harish Balaji R.
       </footer>
     </section>
   );

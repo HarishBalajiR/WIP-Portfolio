@@ -19,7 +19,7 @@ const Work = () => {
               First projects are in the works.
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              I'm currently learning the fundamentals and laying the groundwork for my first real-world projects. This space will soon showcase what I build along the way — full-stack apps, problem-solving experiments, and open-source contributions.
+              I'm currently learning the fundamentals and laying the groundwork for my first real-world projects.
             </p>
             <div className="pt-4">
               <a
